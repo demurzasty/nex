@@ -1,4 +1,6 @@
+import 'module-alias/register'
 import 'reflect-metadata'
+
 import { VulkanWindow } from 'nvk'
 import Container, { Service } from 'typedi'
 
