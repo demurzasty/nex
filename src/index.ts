@@ -1,14 +1,18 @@
 import { VulkanWindow } from 'nvk'
 
-const window = new VulkanWindow({
-  width: 480,
-  height: 320,
-  title: 'Nex',
-})
+class MainLoop {
+  private window = new VulkanWindow({
+    width: 480,
+    height: 320,
+    title: 'Nex',
+  })
 
-;(function drawLoop() {
-  if (!window.shouldClose()) {
-    setTimeout(drawLoop, 16)
+  loop() {
+    if (!this.window.shouldClose()) {
+      setTimeout(this.loop, 16)
+    }
+    this.window.pollEvents()
   }
-  window.pollEvents()
-})()
+}
+
+new MainLoop().loop()
