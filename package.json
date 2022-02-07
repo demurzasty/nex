@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "lint": "eslint --ext .js,.ts ."
+    "lint": "eslint --ext .js,.ts .",
+    "start": "tsc && node dist/index.js"
   },
   "dependencies": {
     "nvk": "^0.8.0",
