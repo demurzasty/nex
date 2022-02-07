@@ -1,4 +1,4 @@
-import { ISystem, System } from '../system'
+import { ISystem, System } from '@core/system'
 
 @System()
 export class MySystem implements ISystem {
