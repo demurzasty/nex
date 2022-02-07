@@ -26,5 +26,5 @@
     ],
     "semi": ["error", "never"]
   },
-  "ignorePatterns": ["dist/**/*"]
+  "ignorePatterns": ["dist/**/*", "src/types/**/*"]
 }
