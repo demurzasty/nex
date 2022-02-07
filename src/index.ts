@@ -9,7 +9,7 @@ class MainLoop {
 
   loop() {
     if (!this.window.shouldClose()) {
-      setTimeout(this.loop, 16)
+      setTimeout(() => this.loop(), 16)
     }
     this.window.pollEvents()
   }
