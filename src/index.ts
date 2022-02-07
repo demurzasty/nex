@@ -1,3 +1,4 @@
+import 'reflect-metadata'
 import { VulkanWindow } from 'nvk'
 
 class MainLoop {
