@@ -1,10 +1,10 @@
-import { COMPONENT_NAME_KEY } from './component'
+import { COMPONENT_KEY } from './component'
 import { Entity } from './entity'
 import { UknownType } from './utils'
 
 export class Family implements Iterable<Entity> {
-  private readonly componentNames: string[] = this.componentTypes.map(
-    (componentType) => Reflect.getMetadata(COMPONENT_NAME_KEY, componentType)
+  private readonly componentIds: number[] = this.componentTypes.map(
+    (componentType) => Reflect.getMetadata(COMPONENT_KEY, componentType).id
   )
 
   constructor(
@@ -18,9 +18,9 @@ export class Family implements Iterable<Entity> {
       next: () => {
         if (index < this.entities.length) {
           if (
-            this.componentNames.some(
-              (componentName) =>
-                !this.entities[index].hasComponentByName(componentName)
+            this.componentIds.some(
+              (componentId) =>
+                !this.entities[index].hasComponentById(componentId)
             )
           ) {
             index++
