@@ -18,6 +18,6 @@ export class Registry {
   }
 
   getFamily(...componentTypes: UknownType[]): Family {
-    return new Family(this.entities)
+    return new Family(this.entities, componentTypes)
   }
 }
