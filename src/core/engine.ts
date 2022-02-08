@@ -1,14 +1,13 @@
-/* eslint-disable @typescript-eslint/ban-types */
-
 import Container from 'typedi'
 import { ModuleInput, MODULE_INPUT_KEY } from './module'
 import { ISystem } from './system'
+import { Type } from './utils'
 
 class Engine {
   private isRunning = true
   private systems: ISystem[] = []
 
-  bootstrap<T>(moduleType: new () => T): void {
+  bootstrap<T>(moduleType: Type<T>): void {
     if (!Reflect.hasMetadata(MODULE_INPUT_KEY, moduleType)) {
       throw new Error('No module input provided.')
     }
