@@ -30,7 +30,7 @@
   },
   "_moduleAliases": {
     "@core": "dist/core",
-    "@systems": "dist/systems",
+    "@windowing": "dist/windowing",
     "@components": "dist/components"
   }
 }

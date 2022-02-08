@@ -1,6 +1,6 @@
 import { Module } from '@core/module'
 import { IdentityComponent } from '@components/identity.component'
-import { WindowSystem } from '@systems/window.system'
+import { WindowSystem } from '@windowing/window.system'
 
 @Module({
   systems: [WindowSystem],
