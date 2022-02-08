@@ -1,4 +1,7 @@
 import { Module } from '@core/module'
+import { FooSystem } from '@systems/foo.system'
 
-@Module()
+@Module({
+  systems: [FooSystem],
+})
 export class AppModule {}

@@ -1,5 +1,4 @@
-import Container, { Constructable } from 'typedi'
-
-export function bootstrap<T>(entry: Constructable<T>) {
-  Container.get(entry)
+// eslint-disable-next-line @typescript-eslint/ban-types
+export function bootstrap(entry: Function) {
+  console.log(Reflect.getMetadata('nexModuleInput', entry))
 }

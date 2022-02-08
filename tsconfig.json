@@ -7,7 +7,8 @@
     "rootDir": "./src",
     "baseUrl": "./src",
     "paths": {
-      "@core/*": ["core/*"]
+      "@core/*": ["core/*"],
+      "@systems/*": ["systems/*"]
     },
     "allowJs": true,
     "outDir": "./dist",

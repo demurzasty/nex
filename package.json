@@ -29,6 +29,7 @@
     "typescript": "^4.5.5"
   },
   "_moduleAliases": {
-    "@core": "dist/core"
+    "@core": "dist/core",
+    "@systems": "dist/systems"
   }
 }
