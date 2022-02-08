@@ -1,9 +1,10 @@
 import { Module } from '@core/module'
-import { FooSystem } from '@systems/foo.system'
 import { IdentityComponent } from '@components/identity.component'
+import { WindowSystem } from '@systems/window.system'
 
 @Module({
-  systems: [FooSystem],
+  systems: [WindowSystem],
   components: [IdentityComponent],
+  imports: [],
 })
 export class AppModule {}
