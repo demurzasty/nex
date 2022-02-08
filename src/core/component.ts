@@ -1,5 +1,5 @@
-export const COMPONENT_KEY = 'nexComponent'
+export const COMPONENT_NAME_KEY = 'nexComponent'
 
-export const Component = () => {
-  return Reflect.metadata(COMPONENT_KEY, true)
+export const Component = (name: string) => {
+  return Reflect.metadata(COMPONENT_NAME_KEY, name)
 }

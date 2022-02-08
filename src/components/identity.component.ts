@@ -1,6 +1,6 @@
 import { Component } from '@core/component'
 
-@Component()
+@Component('identity')
 export class IdentityComponent {
-  constructor(public identity: string) {}
+  identity?: string
 }

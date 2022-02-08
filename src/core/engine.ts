@@ -8,14 +8,14 @@ class Engine {
   private isRunning = true
   private systems: ISystem[] = []
 
-  bootstrap(entry: Function): void {
-    if (!Reflect.hasMetadata(MODULE_INPUT_KEY, entry)) {
+  bootstrap<T>(moduleType: new () => T): void {
+    if (!Reflect.hasMetadata(MODULE_INPUT_KEY, moduleType)) {
       throw new Error('No module input provided.')
     }
 
     const moduleInput = Reflect.getMetadata(
       MODULE_INPUT_KEY,
-      entry
+      moduleType
     ) as ModuleInput
 
     this.systems = moduleInput.systems.map(
