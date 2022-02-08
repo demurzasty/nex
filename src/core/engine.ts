@@ -1,11 +1,13 @@
 import Container from 'typedi'
 import { ModuleInput, MODULE_INPUT_KEY } from './module'
+import { Registry } from './registry'
 import { ISystem } from './system'
 import { Type } from './utils'
 
 class Engine {
   private isRunning = false
   private systems: ISystem[] = []
+  private registry = new Registry()
 
   bootstrap<T>(moduleType: Type<T>): void {
     if (!Reflect.hasMetadata(MODULE_INPUT_KEY, moduleType)) {
@@ -31,7 +33,7 @@ class Engine {
 
   private mainLoop(): void {
     for (const system of this.systems) {
-      system.process()
+      system.process(this.registry)
     }
 
     if (this.isRunning) {
