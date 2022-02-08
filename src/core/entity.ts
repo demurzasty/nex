@@ -1,5 +1,7 @@
 import { COMPONENT_NAME_KEY } from './component'
 
+// TODO: This is very inefficient implementation of ECS. Should be rewritten to data-oriented implementation.
+
 export class Entity {
   private components = new Map<string, unknown>()
 
