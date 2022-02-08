@@ -7,19 +7,23 @@ export class Entity {
   private components = new Map<string, unknown>()
 
   addComponent<T>(componentType: Type<T>): T {
-    const name = Reflect.getMetadata(COMPONENT_NAME_KEY, componentType)
+    const componentName = Reflect.getMetadata(COMPONENT_NAME_KEY, componentType)
     const component = new componentType()
-    this.components.set(name, component)
+    this.components.set(componentName, component)
     return component
   }
 
   hasComponent<T>(componentType: Type<T>): boolean {
-    const name = Reflect.getMetadata(COMPONENT_NAME_KEY, componentType)
-    return this.components.has(name)
+    const componentName = Reflect.getMetadata(COMPONENT_NAME_KEY, componentType)
+    return this.hasComponentByName(componentName)
+  }
+
+  hasComponentByName(componentName: string): boolean {
+    return this.components.has(componentName)
   }
 
   removeComponent<T>(componentType: Type<T>): boolean {
-    const name = Reflect.getMetadata(COMPONENT_NAME_KEY, componentType)
-    return this.components.delete(name)
+    const componentName = Reflect.getMetadata(COMPONENT_NAME_KEY, componentType)
+    return this.components.delete(componentName)
   }
 }

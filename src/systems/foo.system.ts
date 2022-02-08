@@ -7,7 +7,7 @@ export class FooSystem implements ISystem {
   private readonly family = this.registry.getFamily(IdentityComponent)
 
   constructor(private readonly registry: Registry) {
-    registry.create()
+    registry.create().addComponent(IdentityComponent)
   }
 
   process(): void {
