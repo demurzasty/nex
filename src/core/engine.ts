@@ -4,7 +4,7 @@ import { ISystem } from './system'
 import { Type } from './utils'
 
 class Engine {
-  private isRunning = true
+  private isRunning = false
   private systems: ISystem[] = []
 
   bootstrap<T>(moduleType: Type<T>): void {
@@ -21,6 +21,7 @@ class Engine {
       (factory) => Container.get(factory) as ISystem
     )
 
+    this.isRunning = true
     this.mainLoop()
   }
 
