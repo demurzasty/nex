@@ -11,8 +11,8 @@
   },
   "dependencies": {
     "module-alias": "^2.2.2",
-    "nvk": "^0.8.0",
-    "nvk-essentials": "^0.1.2",
+    "nvk": "0.8.0",
+    "nvk-essentials": "0.1.2",
     "reflect-metadata": "^0.1.13",
     "typedi": "^0.10.0"
   },
