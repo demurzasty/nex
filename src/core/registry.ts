@@ -13,6 +13,10 @@ export class Registry {
     return entity
   }
 
+  remove(entity: Entity): void {
+    this.entities.splice(this.entities.indexOf(entity), 1)
+  }
+
   getFamily(...componentTypes: UknownType[]): Family {
     return new Family(this.entities)
   }
