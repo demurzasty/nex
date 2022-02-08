@@ -1,6 +1,9 @@
+/* eslint-disable @typescript-eslint/ban-types */
+
 export interface ModuleInput {
-  // eslint-disable-next-line @typescript-eslint/ban-types
+  imports?: Function[]
   systems?: Function[]
+  components?: Function[]
 }
 
 export const Module = (input: ModuleInput = {}) => {
