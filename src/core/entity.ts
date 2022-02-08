@@ -29,7 +29,7 @@ export class Entity {
   hasComponentById(componentId: number): boolean {
     return (
       componentId < this.components.length &&
-      this.components[componentId] != null
+      this.components[componentId] !== undefined
     )
   }
 
@@ -39,6 +39,6 @@ export class Entity {
       componentType
     ) as ComponentMetadata
 
-    this.components[id] = null
+    this.components[id] = undefined
   }
 }
