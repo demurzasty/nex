@@ -3,7 +3,7 @@ import { VulkanWindow } from 'nvk'
 
 @Service()
 export class WindowService {
-  private window = new VulkanWindow({
+  private readonly window = new VulkanWindow({
     width: 1280,
     height: 720,
     title: 'Nex',
