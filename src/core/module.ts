@@ -9,5 +9,5 @@ export interface ModuleInput {
 }
 
 export const Module = (input: ModuleInput) => {
-  return Reflect.metadata('nexModuleInput', input)
+  return Reflect.metadata(MODULE_INPUT_KEY, input)
 }
