@@ -3,37 +3,33 @@ import { ModuleInput, MODULE_INPUT_KEY } from './module'
 import { ISystem } from './system'
 import { Type } from './utils'
 
-class Engine {
-  private isRunning = false
-  private systems: ISystem[] = []
+let isRunning = false
+let systems: ISystem[] = []
 
-  bootstrap<T>(moduleType: Type<T>): void {
-    const moduleInput = Reflect.getMetadata(
-      MODULE_INPUT_KEY,
-      moduleType
-    ) as ModuleInput
-
-    this.systems = moduleInput.systems.map(
-      (factory) => Container.get(factory) as ISystem
-    )
-
-    this.isRunning = true
-    this.mainLoop()
+function mainLoop(): void {
+  for (const system of systems) {
+    system.process()
   }
 
-  shutdown(): void {
-    this.isRunning = false
-  }
-
-  private mainLoop(): void {
-    for (const system of this.systems) {
-      system.process()
-    }
-
-    if (this.isRunning) {
-      setTimeout(() => this.mainLoop(), 16)
-    }
+  if (isRunning) {
+    setTimeout(() => mainLoop(), 16)
   }
 }
 
-export const engine = new Engine()
+export function shutdown(): void {
+  isRunning = false
+}
+
+export function bootstrap<T>(moduleType: Type<T>): void {
+  const moduleInput = Reflect.getMetadata(
+    MODULE_INPUT_KEY,
+    moduleType
+  ) as ModuleInput
+
+  systems = moduleInput.systems.map(
+    (factory) => Container.get(factory) as ISystem
+  )
+
+  isRunning = true
+  mainLoop()
+}

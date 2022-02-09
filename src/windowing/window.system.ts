@@ -1,4 +1,4 @@
-import { engine } from '@core/engine'
+import { shutdown } from '@core/engine'
 import { ISystem, System } from '@core/system'
 import { WindowService } from './window.service'
 
@@ -10,7 +10,7 @@ export class WindowSystem implements ISystem {
     if (this.windowService.isOpen) {
       this.windowService.pollEvents()
     } else {
-      engine.shutdown()
+      shutdown()
     }
   }
 }
